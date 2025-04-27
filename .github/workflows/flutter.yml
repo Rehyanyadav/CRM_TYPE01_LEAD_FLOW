@@ -7,17 +7,18 @@ on:
     branches: [ main ]
 
 jobs:
-  build-android-web:
-    runs-on: ubuntu-latest
+  build:
+    name: Build Flutter App
+    runs-on: macos-latest # Needed for iOS builds
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup Flutter
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.16.0'  # Use your Flutter version
+          flutter-version: '3.16.0' # Change to your version if needed
 
       - name: Install dependencies
         run: flutter pub get
@@ -28,36 +29,26 @@ jobs:
       - name: Build Android APK
         run: flutter build apk --release
 
+      - name: Upload Android APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
       - name: Build Web
         run: flutter build web
 
       - name: Upload Web Build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: web-build
           path: build/web
-
-  build-ios:
-    runs-on: macos-latest
-    needs: build-android-web
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.16.0'
-
-      - name: Install dependencies
-        run: flutter pub get
 
       - name: Build iOS
         run: flutter build ios --release --no-codesign
 
       - name: Upload iOS Build
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ios-build
           path: build/ios/iphoneos
