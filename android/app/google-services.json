@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "831748049038",
+    "project_id": "crmmini-76d4a",
+    "storage_bucket": "crmmini-76d4a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831748049038:android:81a8c2cfb681a0db84e1df",
+        "android_client_info": {
+          "package_name": "com.example.crm_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKPm3Ug_L1KBkmV5A2CKY5caBIhQngc7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:831748049038:android:776f711f0840d98284e1df",
+        "android_client_info": {
+          "package_name": "com.example.mini_crm"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKPm3Ug_L1KBkmV5A2CKY5caBIhQngc7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
